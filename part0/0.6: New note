@@ -1,0 +1,23 @@
+title 0.6: New note
+
+#The page has already loaded so before this part 0.5 of sequence diagram
+#has already occurred
+
+actor A
+A->browser:
+note over A
+user creates a new note and submits it
+end note 
+
+
+browser->server:POST request https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+note over browser:
+browser stays the same. Server parses the JSON data
+end note
+server-->browser: application/json= {content: "new test part 0 spa note", date: "2020-09-01T00:17:25.239Z"}
+
+
+note over browser:
+browser executes the event handler
+that renders notes to display; new note is displayed
+end note
